@@ -28,6 +28,22 @@ namespace INTEX2.Controllers
             return View();
         }
 
+        //summary page
+        public IActionResult Summary()
+        {
+            return View();
+        }
+
+        //supervised and unsupervised pages
+        public IActionResult Supervised()
+        {
+            return View();
+        }
+        public IActionResult Unsupervised()
+        {
+            return View();
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
