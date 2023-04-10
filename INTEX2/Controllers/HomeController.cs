@@ -1,4 +1,5 @@
 ﻿using INTEX2.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -12,10 +13,12 @@ namespace INTEX2.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly RoleManager<IdentityRole> _roleManager;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, RoleManager<IdentityRole> roleManager)
         {
             _logger = logger;
+            _roleManager = roleManager;
         }
 
         public IActionResult Index()
@@ -44,6 +47,7 @@ namespace INTEX2.Controllers
             return View();
         }
 
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
@@ -51,3 +55,36 @@ namespace INTEX2.Controllers
         }
     }
 }
+
+
+//public class UsersController : Controller
+//{
+//    private readonly UserManager<ApplicationUser> _userManager;
+
+//    public UsersController(UserManager<ApplicationUser> userManager)
+//    {
+//        _userManager = userManager;
+//    }
+
+//    public async Task<IActionResult> CreateAdminUser(string email, string password)
+//    {
+//        // Create new user
+//        var user = new ApplicationUser { UserName = email, Email = email };
+//        var result = await _userManager.CreateAsync(user, password);
+
+//        if (!result.Succeeded)
+//        {
+//            // Handle error
+//        }
+
+//        // Add user to "Admin" role
+//        result = await _userManager.AddToRoleAsync(user, "Admin");
+
+//        if (!result.Succeeded)
+//        {
+//            // Handle error
+//        }
+
+//        return Ok();
+//    }
+//}

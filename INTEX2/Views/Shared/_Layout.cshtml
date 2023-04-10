@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
     <link rel="shortcut icon" type="image/x-icon" href="~/favicon.ico">
+
+    
 </head>
 <body>
     <header>
@@ -45,7 +47,13 @@
             </div>
         </nav>
     </header>
+
+    
+
     <div class="container">
+        <!--GDPR cookie notification-->
+        <partial name="_CookieConsentPartial" />
+
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
